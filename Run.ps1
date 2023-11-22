@@ -127,6 +127,14 @@ function CheckSecurity {
         Write-Host "[ WARN ] Some networks enabled discovery" -ForegroundColor Yellow
     }
 
+    $firewallStatus = CheckWindowsFirewall
+    if ($firewallStatus) {
+        Write-Host "[  OK  ] Windows Firewall is enabled" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Windows Firewall is disabled" -ForegroundColor Red
+    }
+
     $windowsUpdateStatus = CheckWindowsUpdateStatus
     if ($windowsUpdateStatus) {
         Write-Host "[  OK  ] Windows Update is enabled" -ForegroundColor Green
