@@ -127,6 +127,14 @@ function CheckSecurity {
         Write-Host "[ FAIL ] Windows Defender is disabled" -ForegroundColor Red
     }
 
+    $antiVirtusStatus = CheckAntiViruses
+    if ($antiVirtusStatus) {
+        Write-Host "[  OK  ] Windows Defender is correctly configured" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Windows Defender is not correctly configured" -ForegroundColor Red
+    }
+
     $networkPrivacyStatus = CheckNetworkPrivacyStatus
     if ($networkPrivacyStatus) {
         Write-Host "[  OK  ] All networks are set to public" -ForegroundColor Green
