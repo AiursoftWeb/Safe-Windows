@@ -3,7 +3,7 @@ function CheckWindowsFirewall {
     $private = Get-NetFirewallProfile -Name Private
     $domain = Get-NetFirewallProfile -Name Domain
     return `
-        $public.Enabled -and $public.NotifyOnListen -and`
-        $private.Enabled -and $private.NotifyOnListen -and`
-        $domain.Enabled -and $domain.NotifyOnListen
+        $public.Enabled -and ($public.NotifyOnListen -or $public.DefaultInboundAction -eq 'Block') -and`
+        $private.Enabled -and ($private.NotifyOnListen -or $private.DefaultInboundAction -eq 'Block') -and`
+        $domain.Enabled -and ($domain.NotifyOnListen -or $domain.DefaultInboundAction -eq 'Block')
 }
