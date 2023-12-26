@@ -26,7 +26,7 @@ function CheckSecurity {
         Write-Host "[  OK  ] Kernel DMA Protection is enabled" -ForegroundColor Green
     }
     else {
-        Write-Host "[ FAIL ] Kernel DMA Protection is disabled" -ForegroundColor Red
+        Write-Host "[ FAIL ] Kernel DMA Protection is not supported" -ForegroundColor Red
     }    
 
     $virtualizationBasedSecurity = CheckVirtualizationBasedSecurityStatus
