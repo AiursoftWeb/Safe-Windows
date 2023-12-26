@@ -53,6 +53,14 @@ function CheckSecurity {
         Write-Host "[ FAIL ] TPM is disabled" -ForegroundColor Red
     }
 
+    $winLoadStatus = CheckWinload
+    if ($winLoadStatus) {
+        Write-Host "[  OK  ] Winload is based on UEFI" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Winload is based on BIOS" -ForegroundColor Red
+    }
+
     $secureBootStatus = CheckSecureBootStatus
     if ($secureBootStatus) {
         Write-Host "[  OK  ] Secure Boot is enabled" -ForegroundColor Green
