@@ -113,7 +113,7 @@ function CheckSecurity {
 
     $uacEnabled = CheckUACEnabled
     if ($uacEnabled) {
-        Write-Host "[  OK  ] UAC is enabled" -ForegroundColor Green
+        Write-Host "[  OK  ] UAC is correctly configured" -ForegroundColor Green
     }
     else {
         Write-Host "[ FAIL ] UAC is not correctly configured" -ForegroundColor Red
