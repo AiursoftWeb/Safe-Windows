@@ -153,10 +153,18 @@ function CheckSecurity {
 
     $windowsUpdateStatus = CheckWindowsUpdateStatus
     if ($windowsUpdateStatus) {
-        Write-Host "[  OK  ] Windows Update is enabled" -ForegroundColor Green
+        Write-Host "[  OK  ] Windows Update is running" -ForegroundColor Green
     }
     else {
-        Write-Host "[ FAIL ] Windows Update is disabled" -ForegroundColor Red
+        Write-Host "[ WARN ] Windows Update is not running" -ForegroundColor Yellow
+    }
+
+    $recentInstallUpdates = CheckRecentUpdateTime
+    if ($recentInstallUpdates) {
+        Write-Host "[  OK  ] Windows installed recent updates" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Windows has not installed recent updates" -ForegroundColor Red
     }
 
     # User settings.
