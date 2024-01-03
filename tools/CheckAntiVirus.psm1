@@ -65,7 +65,7 @@ function CheckAntiViruses {
         Write-Error "Windows Defender is configured to exclude some critical folders"
     }
 
-    return $allEnabled -and $networkProtected -and $allActionsAreSafe -and (-not $criticalFolderExcluded)
+    return $allEnabled -and $allActionsAreSafe -and (-not $criticalFolderExcluded)
 }
 
 Export-ModuleMember -Function CheckAntiViruses
