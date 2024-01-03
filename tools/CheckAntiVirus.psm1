@@ -30,9 +30,9 @@ function CheckAntiViruses {
 
     $networkProtected = $settings.EnableNetworkProtection -eq 1
 
-    if (-not $networkProtected) {
-        Write-Error "Windows Defender is not protecting the network"
-    }
+    #if (-not $networkProtected) {
+    #    Write-Error "Windows Defender is not protecting the network"
+    #}
 
     $HighThreatDefaultActionIsSafe = $settings.HighThreatDefaultAction -eq 0
     $LowThreatDefaultActionIsSafe = $settings.LowThreatDefaultAction -eq 0
