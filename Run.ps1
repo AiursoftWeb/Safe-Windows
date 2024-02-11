@@ -192,7 +192,7 @@ function CheckSecurity {
         Write-Host "[ FAIL ] Administrator user is enabled" -ForegroundColor Red
     }
 
-    $cloudBackupStatus = CheckCloudBackupStatus
+    $cloudBackupStatus = CheckCloudBackup
     if ($cloudBackupStatus) {
         Write-Host "[  OK  ] Cloud backup is enabled" -ForegroundColor Green
     }
