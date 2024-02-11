@@ -191,6 +191,14 @@ function CheckSecurity {
     else {
         Write-Host "[ FAIL ] Administrator user is enabled" -ForegroundColor Red
     }
+
+    $cloudBackupStatus = CheckCloudBackupStatus
+    if ($cloudBackupStatus) {
+        Write-Host "[  OK  ] Cloud backup is enabled" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Cloud backup is not configured. (OneDrive\Dropbox\GoogleDrive\iCloud\Nextcloud)" -ForegroundColor Red
+    }
 }
 
 CheckSecurity
