@@ -37,12 +37,12 @@ function CheckSecurity {
         Write-Host "[ FAIL ] Virtualization Based Security is disabled" -ForegroundColor Red
     }
 
-    $hyperVisorEnforcedCodeIntegrity = CheckHypervisorEnforcedCodeIntegrityEnabled
-    if ($hyperVisorEnforcedCodeIntegrity) {
-        Write-Host "[  OK  ] Core isolation with Memory Integrity is enabled" -ForegroundColor Green
+    $memoryIntegrity = CheckMemoryIntegrity
+    if ($memoryIntegrity) {
+        Write-Host "[  OK  ] Virtualization Based Security with Memory Integrity is enabled" -ForegroundColor Green
     }
     else {
-        Write-Host "[ FAIL ] Core isolation with Memory Integrity is disabled" -ForegroundColor Red
+        Write-Host "[ FAIL ] Virtualization Based Security with Memory Integrity is disabled" -ForegroundColor Red
     }
 
     $codeIntegrityPolicyEnforcement = CheckCodeIntegrityPolicyEnforcement

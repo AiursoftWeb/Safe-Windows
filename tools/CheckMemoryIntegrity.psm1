@@ -1,4 +1,4 @@
-function CheckHypervisorEnforcedCodeIntegrityEnabled {
+function CheckMemoryIntegrity {
     $path = "HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity"
 
     if (Test-Path -Path $path) {
@@ -10,4 +10,4 @@ function CheckHypervisorEnforcedCodeIntegrityEnabled {
     return $false
 }
 
-Export-ModuleMember -Function CheckHypervisorEnforcedCodeIntegrityEnabled
+Export-ModuleMember -Function CheckMemoryIntegrity
