@@ -63,10 +63,10 @@ function CheckSecurity {
 
     $tpmStatus = CheckTpmStatus
     if ($tpmStatus) {
-        Write-Host "[  OK  ] TPM is enabled" -ForegroundColor Green
+        Write-Host "[  OK  ] TPM is detected" -ForegroundColor Green
     }
     else {
-        Write-Host "[ FAIL ] TPM is disabled" -ForegroundColor Red
+        Write-Host "[ FAIL ] TPM is not detected" -ForegroundColor Red
     }
 
     $winLoadStatus = CheckWinload
