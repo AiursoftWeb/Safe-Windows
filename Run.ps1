@@ -107,7 +107,7 @@ function CheckSecurity {
         Write-Host "[  OK  ] Device Encryption is enabled" -ForegroundColor Green
     }
     else {
-        Write-Host "[ FAIL ] Device Encryption is disabled" -ForegroundColor Red
+        Write-Host "[ FAIL ] Device Encryption is disabled (System drive is not protected by secure boot for integrity validation)" -ForegroundColor Red
     }
 
     # Windows security settings.
