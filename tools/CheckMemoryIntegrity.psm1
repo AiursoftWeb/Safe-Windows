@@ -24,4 +24,4 @@ function CheckLocalSecurityAuthorityProtection {
     return $false
 }
 
-Export-ModuleMember -Function CheckMemoryIntegrity -Function CheckLocalSecurityAuthorityProtection
+Export-ModuleMember -Function CheckMemoryIntegrity, CheckLocalSecurityAuthorityProtection
