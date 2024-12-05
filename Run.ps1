@@ -45,6 +45,14 @@ function CheckSecurity {
         Write-Host "[ FAIL ] Virtualization Based Security with Memory Integrity is disabled" -ForegroundColor Red
     }
 
+    $localSecurityAuthorityProtection = CheckLocalSecurityAuthorityProtection
+    if ($localSecurityAuthorityProtection) {
+        Write-Host "[  OK  ] Local Security Authority Protection is enabled" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Local Security Authority Protection is disabled" -ForegroundColor Red
+    }
+
     $codeIntegrityPolicyEnforcement = CheckCodeIntegrityPolicyEnforcement
     if ($codeIntegrityPolicyEnforcement) {
         Write-Host "[  OK  ] Code Integrity Policy Enforcement is enabled" -ForegroundColor Green
