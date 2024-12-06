@@ -200,6 +200,16 @@ function CheckSecurity {
         Write-Host "[ FAIL ] Auto login is allowed" -ForegroundColor Red
     }
 
+    $currentUsername = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+    $userNameOnly = $currentUsername.Split('\')[-1]
+    $currentUserIsAdministator = $userNameOnly -eq "Administrator"
+    if (-not $currentUserIsAdministator) {
+        Write-Host "[  OK  ] Current user is not the Administrator" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Current user is Administrator and should not be" -ForegroundColor Red
+    }
+
     $administatorUserDisabled = CheckAdministatorUserDisabled
     if ($administatorUserDisabled) {
         Write-Host "[  OK  ] Administrator user is disabled" -ForegroundColor Green
