@@ -225,6 +225,14 @@ function CheckSecurity {
     else {
         Write-Host "[ FAIL ] Cloud backup is not configured. (OneDrive\Dropbox\GoogleDrive\iCloud\Nextcloud)" -ForegroundColor Red
     }
+
+    $systemDiskPartitionStyle = CheckSystemDiskPartitionStyle
+    if ($systemDiskPartitionStyle) {
+        Write-Host "[  OK  ] System disk partition style is GPT" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] System disk partition style is not GPT" -ForegroundColor Red
+    }
 }
 
 CheckSecurity
