@@ -37,6 +37,22 @@ function CheckSecurity {
         Write-Host "[ FAIL ] Virtualization Based Security is disabled" -ForegroundColor Red
     }
 
+    $memoryIntegrity = CheckMemoryIntegrity
+    if ($memoryIntegrity) {
+        Write-Host "[  OK  ] Virtualization Based Security with Memory Integrity is enabled" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Virtualization Based Security with Memory Integrity is disabled" -ForegroundColor Red
+    }
+
+    $localSecurityAuthorityProtection = CheckLocalSecurityAuthorityProtection
+    if ($localSecurityAuthorityProtection) {
+        Write-Host "[  OK  ] Local Security Authority Protection is enabled" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Local Security Authority Protection is disabled" -ForegroundColor Red
+    }
+
     $codeIntegrityPolicyEnforcement = CheckCodeIntegrityPolicyEnforcement
     if ($codeIntegrityPolicyEnforcement) {
         Write-Host "[  OK  ] Code Integrity Policy Enforcement is enabled" -ForegroundColor Green
@@ -47,10 +63,10 @@ function CheckSecurity {
 
     $tpmStatus = CheckTpmStatus
     if ($tpmStatus) {
-        Write-Host "[  OK  ] TPM is enabled" -ForegroundColor Green
+        Write-Host "[  OK  ] TPM is detected" -ForegroundColor Green
     }
     else {
-        Write-Host "[ FAIL ] TPM is disabled" -ForegroundColor Red
+        Write-Host "[ FAIL ] TPM is not detected" -ForegroundColor Red
     }
 
     $winLoadStatus = CheckWinload
@@ -91,7 +107,7 @@ function CheckSecurity {
         Write-Host "[  OK  ] Device Encryption is enabled" -ForegroundColor Green
     }
     else {
-        Write-Host "[ FAIL ] Device Encryption is disabled" -ForegroundColor Red
+        Write-Host "[ FAIL ] Device Encryption is disabled (System drive is not protected by secure boot for integrity validation)" -ForegroundColor Red
     }
 
     # Windows security settings.
@@ -182,6 +198,16 @@ function CheckSecurity {
     }
     else {
         Write-Host "[ FAIL ] Auto login is allowed" -ForegroundColor Red
+    }
+
+    $currentUsername = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+    $userNameOnly = $currentUsername.Split('\')[-1]
+    $currentUserIsAdministator = $userNameOnly -eq "Administrator"
+    if (-not $currentUserIsAdministator) {
+        Write-Host "[  OK  ] Current user is not the Administrator" -ForegroundColor Green
+    }
+    else {
+        Write-Host "[ FAIL ] Current user is Administrator and should not be" -ForegroundColor Red
     }
 
     $administatorUserDisabled = CheckAdministatorUserDisabled
