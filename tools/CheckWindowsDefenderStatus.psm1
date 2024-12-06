@@ -8,4 +8,4 @@ function CheckWindowsDefenderStatus {
         -and $windowsDefenderStatus.AntispywareEnabled -eq $true
 }
 
-CheckWindowsDefenderStatus
+Export-ModuleMember -Function CheckWindowsDefenderStatus

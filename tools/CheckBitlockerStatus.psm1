@@ -1,4 +1,4 @@
-function CheckBitlockerStatus {
+function CheckBitLockerStatus {
     $systemDrive = (Get-WmiObject Win32_OperatingSystem).SystemDrive
 
     $bitlockerStatus = Get-BitLockerVolume -MountPoint $systemDrive -ErrorAction SilentlyContinue
@@ -6,3 +6,5 @@ function CheckBitlockerStatus {
 
     return $bitlockerStatus.ProtectionStatus -eq "On" -and $volumeEncryptionStatus.ProtectionStatus -eq 1 -and $volumeEncryptionStatus.IsVolumeInitializedForProtection -eq $true
 }
+
+Export-ModuleMember -Function CheckBitLockerStatus

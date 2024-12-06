@@ -7,3 +7,5 @@ function CheckWindowsFirewall {
         $private.Enabled -and ($private.NotifyOnListen -or $private.DefaultInboundAction -eq 'Block') -and`
         $domain.Enabled -and ($domain.NotifyOnListen -or $domain.DefaultInboundAction -eq 'Block')
 }
+
+Export-ModuleMember -Function CheckWindowsFirewall
