@@ -6,3 +6,5 @@ function CheckCodeIntegrityPolicyEnforcement {
     # 2 = Enforced.
     return $codeIntegrityPolicyEnforcement.CodeIntegrityPolicyEnforcementStatus -eq 2
 }
+
+Export-ModuleMember -Function CheckCodeIntegrityPolicyEnforcement

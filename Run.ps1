@@ -94,7 +94,7 @@ function CheckSecurity {
     }
 
     # Disk settings.
-    $bitlockerStatus = CheckBitlockerStatus
+    $bitlockerStatus = CheckBitLockerStatus
     if ($bitlockerStatus) {
         Write-Host "[  OK  ] Bitlocker is enabled" -ForegroundColor Green
     }

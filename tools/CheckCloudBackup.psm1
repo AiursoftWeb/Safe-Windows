@@ -13,3 +13,5 @@ function CheckCloudBackup {
 
     return $null -ne $hasBackupFolderUnderUser
 }
+
+Export-ModuleMember -Function CheckCloudBackup
