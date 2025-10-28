@@ -1,6 +1,6 @@
 # Safe-Windows
 
-[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/aiursoft/Safe-Windows.svg)](https://gitlab.aiursoft.com/aiursoft/Safe-Windows/-/commits/master?ref_type=heads)
+[![ManHours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/Safe-Windows.svg)](https://gitlab.aiursoft.com/aiursoft/Safe-Windows/-/commits/master?ref_type=heads)
 
 One-key PowerShell to check if your Windows is safe to use.
 
