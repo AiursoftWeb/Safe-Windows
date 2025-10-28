@@ -1,6 +1,6 @@
 # Safe-Windows
 
-[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/aiursoft/Safe-Windows.svg)](https://gitlab.aiursoft.cn/aiursoft/Safe-Windows/-/commits/master?ref_type=heads)
+[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/aiursoft/Safe-Windows.svg)](https://gitlab.aiursoft.com/aiursoft/Safe-Windows/-/commits/master?ref_type=heads)
 
 One-key PowerShell to check if your Windows is safe to use.
 
@@ -13,7 +13,7 @@ First, search `PowerShell` in Windows search. Then click `Run as administrator`.
 Then copy the following command and paste it into the PowerShell window. Then press `Enter`.
 
 ```powershell
-Remove-Item "$env:TEMP\safe-windows-master\" -Recurse -ErrorAction SilentlyContinue; $destinationPath = "$env:TEMP\safe-windows-master.zip"; Invoke-WebRequest -Uri "https://gitlab.aiursoft.cn/aiursoft/safe-windows/-/archive/master/safe-windows-master.zip" -OutFile $destinationPath -UseBasicParsing; Expand-Archive -Path $destinationPath -DestinationPath $env:TEMP; Remove-Item $destinationPath; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force; . "$env:TEMP\safe-windows-master\Run.ps1"
+Remove-Item "$env:TEMP\safe-windows-master\" -Recurse -ErrorAction SilentlyContinue; $destinationPath = "$env:TEMP\safe-windows-master.zip"; Invoke-WebRequest -Uri "https://gitlab.aiursoft.com/aiursoft/safe-windows/-/archive/master/safe-windows-master.zip" -OutFile $destinationPath -UseBasicParsing; Expand-Archive -Path $destinationPath -DestinationPath $env:TEMP; Remove-Item $destinationPath; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force; . "$env:TEMP\safe-windows-master\Run.ps1"
 ```
 
 And then you will see the output like this:
